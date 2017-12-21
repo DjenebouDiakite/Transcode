@@ -1,3 +1,6 @@
 /nbproject/private/
 /Transcode-war/nbproject/private/
 /Transcode-ejb/nbproject/private/
+/Transcode-ejb/build/
+/Transcode-ejb/dist/
+/Transcode-war/build/

@@ -6,6 +6,7 @@
 package com.supinfo.transcode.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class Client implements Serializable{
     
     private String password;
     
+    @Column(unique=true, nullable=false) 
     private String eMail;
     
 
@@ -56,11 +58,11 @@ public class Client implements Serializable{
         this.password = password;
     }
 
-    public String geteMail() {
+    public String getEMail() {
         return eMail;
     }
 
-    public void seteMail(String eMail) {
+    public void setEMail(String eMail) {
         this.eMail = eMail;
     }
     

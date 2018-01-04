@@ -22,8 +22,8 @@ import org.brickred.socialauth.SocialAuthManager;
  *
  * @author matta
  */
-@WebServlet(name = "webServletfacebook", urlPatterns = {"/cofacebook"})
-public class CoFaceBookServlet extends HttpServlet{
+@WebServlet(name = "webServletgoogle", urlPatterns = {"/cogoogle"})
+public class CoGoogleServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,7 +35,7 @@ public class CoFaceBookServlet extends HttpServlet{
             //You can also pass input stream, properties object or properties file name.            
             config.load(getServletContext().getResourceAsStream("/WEB-INF/oauth_consumer.properties"));
         } catch (Exception ex) {
-            Logger.getLogger(CoFaceBookServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoGoogleServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         //Create an instance of SocialAuthManager and set config
@@ -43,19 +43,22 @@ public class CoFaceBookServlet extends HttpServlet{
         try {
             manager.setSocialAuthConfig(config);
         } catch (Exception ex) {
-            Logger.getLogger(CoFaceBookServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoGoogleServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         //URL of YOUR application which will be called after authentication
-        String successUrl = "http://localhost:9090/Transcode-war/";
+        String successUrl = "www.google.fr";
         String url = null;
         
         try {
             // get Provider URL to which you should redirect for authentication.
             // id can have values "facebook", "twitter", "yahoo" etc. or the OpenID URL
-            url = manager.getAuthenticationUrl("facebook", successUrl);
+            System.out.println("Caca !!!!!!!!!");
+            url = manager.getAuthenticationUrl("google", successUrl);
+            System.out.println("url :"+ url.toString());
         } catch (Exception ex) {
-            Logger.getLogger(CoFaceBookServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoGoogleServlet.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("AAAAAAAAAAAAAAAAAAAA : "+url);
         }
 
         // Store in session

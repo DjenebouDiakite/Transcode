@@ -7,6 +7,7 @@ package com.supinfo.transcode.ejb;
 
 import com.supinfo.transcode.entity.Client;
 import com.supinfo.transcode.service.ClientService;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -14,6 +15,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author matta
  */
+@Stateless
 public class ClientBean implements ClientService{
     @PersistenceContext
     private EntityManager em;
